@@ -1,0 +1,27 @@
+{
+  "StartAt": "Modelling_task",
+  "States": {
+    "Modelling_task": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "LaunchType": "FARGATE",
+        "Cluster": "arn:aws:ecs:us-east-1:487388507517:cluster/ECS-Dev-Cluster",
+        "TaskDefinition": "arn:aws:ecs:us-east-1:487388507517:task-definition/ecs-website-hit-rev-task-def",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": [
+              "subnet-0f7316db1e98f32ea",
+              "subnet-0c2c56f6e2c3bc3c1"
+            ],
+            "SecurityGroups": [
+              "sg-00f4b77bd43305059"
+            ],
+            "AssignPublicIp": "ENABLED"
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}
