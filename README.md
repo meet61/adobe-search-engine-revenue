@@ -22,6 +22,8 @@
 6. Above steps will trigger lambda functions. Lambda function will trigger workflow. Upon completion output file will be created in s3://website-hit-data/  processed/ bucket
 
 
+
+
 #  AWS Workflow
 
 ![alt text](https://github.com/meet61/adobe-search-engine-revenue/blob/main/WorkflowImage.png?raw=true)

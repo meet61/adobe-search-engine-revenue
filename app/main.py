@@ -44,10 +44,10 @@ def save_metric(metric_df: pd.DataFrame) -> None:
     data_key = config['project_info']['output_data_key']
 
     max_value_date = metric_df['date'].max()
-    data_key = data_key + max_value_date + 'SearchKeywordPerformance.csv'
+    data_key = data_key + max_value_date + '_SearchKeywordPerformance.csv'
     output_df = metric_df[['Search_Engine_Domain','Search_Keyword','Total_Revenue']]
     csv_buffer = StringIO()
-    output_df.to_csv(csv_buffer,sep='\t')
+    output_df.to_csv(csv_buffer,sep='\t',index = False)
     s3.Object(bucket, data_key).put(Body=csv_buffer.getvalue())
 
 
